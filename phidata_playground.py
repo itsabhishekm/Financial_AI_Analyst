@@ -1,15 +1,21 @@
+#Note that we are hosting our agent on phidata platform for which we use the playground
+#After running this file you have login to your phidata account and from there go to playground and select the end point to localhost:7777
+import os
+import phi
+import openai
+import phi.api
 from phi.agent import Agent
-from phi.model.groq import Groq
+from phi.model.openai import OpenAIChat
 from phi.tools.yfinance import YFinanceTools
 from phi.tools.duckduckgo import DuckDuckGo
-import openai
-import os
 from dotenv import load_dotenv
+from phi.model.groq import Groq
+from phi.playground import Playground, serve_playground_app
 
 # Loading the environment variables from .env file
 load_dotenv()
 
-openai.api_key=os.getenv("OPENAI_API_KEY")
+phi.api=os.getenv("PHI_API_KEY")
 
 #Creating the web search agent
 
@@ -40,14 +46,9 @@ finance_agent=Agent(
     markdown=True
 )
 
-# Now creating a multiai agent
+app=Playground(agents=[finance_agent,web_search_agent]).get_app()
 
-multi_ai_agent=Agent(
-    team=[web_search_agent,finance_agent],
-    instructions=["Always include sources","Use table to display the data"],
-    show_tool_calls=True,
-    markdown=True,
-)
+if __name__=="__main__":
+    #Note phidata_playground is the file name and the ":app" is pointing to where the program is going to start.
+    serve_playground_app("phidata_playground:app",reload=True)
 
-#Testing this with Nvidia stock
-multi_ai_agent.print_response("Summarize analyst recommendation and share the latest news for NVDA",stream=True)

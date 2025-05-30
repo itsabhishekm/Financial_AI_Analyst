@@ -1,5 +1,5 @@
-#Note that we are hosting our agent on phidata platform for which we use the playground
-#After running this file you have login to your phidata account and from there go to playground and select the end point to localhost:7777
+# Note that we are hosting our agent on phidata platform for which we use the playground
+# After running this file you have login to your phidata account and from there go to playground and select the end point to localhost:7777
 import os
 import phi
 import openai

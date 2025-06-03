@@ -1,4 +1,4 @@
-# Financial AI Analyst
+# Stock  Analyst
 
 An Agentic, multi-agent system that combines real-time stock analysis, financial metrics, and web search using **Phidata**, **Groq LLaMA3**, and **yFinance**. Built for investors and analysts to research about financial analysis of any stock in the market.
 
@@ -28,7 +28,7 @@ An Agentic, multi-agent system that combines real-time stock analysis, financial
 
 ## File Structure
 ```
-Financial_AI_Analyst/
+Stock_Analyst/
 ├── financial_agent.py # AI agents
 ├── phidata_playground.py # Launches Phidata UI (http://localhost:7777)
 ├── .env # API keys
@@ -43,8 +43,8 @@ Financial_AI_Analyst/
 ### Clone the Repository
 
 ```
-git clone https://github.com/itsabhishekm/Financial_AI_Analyst.git
-cd Financial_AI_Analyst
+git clone https://github.com/itsabhishekm/Stock_Analyst.git
+cd Stock_Analyst
 ```
 
 ### Create a Virtual Environment & Install Dependencies
